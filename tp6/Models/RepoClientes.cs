@@ -30,8 +30,7 @@ namespace tp6.Models
             var conexion = new SQLiteConnection(cadena);
             conexion.Open();
             var command = conexion.CreateCommand();
-            command.CommandText = "Insert Into Clientes(idCliente, NombreCliente, DireccionCliente, TelefonoCliente, Cupon, CostoTotal) values (@idCliente, @NombreCliente, @DireccionCliente, @TelefonoCliente, @Cupon, @CostoTotal)";
-            command.Parameters.AddWithValue("@idCliente", Cli.Id);
+            command.CommandText = "Insert Into Clientes(NombreCliente, DireccionCliente, TelefonoCliente, Cupon, CostoTotal) values (@NombreCliente, @DireccionCliente, @TelefonoCliente, @Cupon, @CostoTotal)";
             command.Parameters.AddWithValue("@NombreCliente", Cli.Nombre);
             command.Parameters.AddWithValue("@DireccionCliente", Cli.Direccion);
             command.Parameters.AddWithValue("@TelefonoCliente", Cli.Telefono);
