@@ -1,0 +1,27 @@
+﻿@model tp6.ViewModel.CadetesYPedidosViewModel
+
+<br />
+<div class="card">
+    <div class="header pt-3 blue-gradient">
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Modificar Estado</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+
+        <form asp-action="NuevoEstado" class="form-group">
+            <input type="hidden" asp-for="@Model.IdCadete" />
+            <br>
+            <div class="card-body px-lg-5 pt-0">
+                <label>Seleccione el cliente: </label>
+                <select asp-for="Estado" value="@Model.Estado">
+                    <option>@EstadoPedido.Recibido</option>
+                    <option>@EstadoPedido.Preparado</option>
+                    <option>@EstadoPedido.EnCamino</option>
+                    <option>@EstadoPedido.Entregado</option>
+                </select>
+            </div>
+            <button class="btn peach-gradient" type="submit">Enviar</button>
+        </form>
+    </div>
+</div>

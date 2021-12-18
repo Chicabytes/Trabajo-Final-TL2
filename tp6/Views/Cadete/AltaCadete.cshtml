@@ -1,0 +1,34 @@
+﻿@model tp6.ViewModel.CadeteViewModel
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Alta Cadete</strong>
+    </h5>
+    <br>
+    <div class="card-body px-lg-5 pt-0">
+        <form class="text-center" style="color: #757575;" asp-action="CargaCadete" method="post">
+            <input type="hidden" asp-for="Id" value="@Model.Id"/>
+            <div class="md-form">
+                <input class="form-control" type="text" asp-for="Nombre">
+                <label asp-for="Nombre">Nombre</label>
+            </div>
+            <div class="md-form">
+                <input class="form-control" type="text" asp-for="Direccion">
+                <label asp-for="Direccion">Direccion</label>
+            </div>
+            <div class="md-form">
+                <input class="form-control" type="text" asp-for="Telefono">
+                <label asp-for="Telefono">Telefono</label>
+            </div>
+            <div class="md-form">
+                <select asp-for="TipoT">
+                    <option value="0">Auto</option>
+                    <option value="1">Moto</option>
+                    <option value="2">Bicicleta</option>
+                </select>
+            </div>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+

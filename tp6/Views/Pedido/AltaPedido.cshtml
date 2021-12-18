@@ -1,0 +1,39 @@
+﻿@model  tp6.ViewModel.PedidoViewModel
+
+<div class="card">
+    <div class="header pt-3 peach-gradient">
+
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Agregar Pedido</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+        <form asp-action="CargaPedido" class="form-group">
+            <input type="hidden" asp-for="@Model.IdCliente" />
+            <br>
+            <div class="card-body px-lg-5 pt-0">
+                <label>Seleccione el cliente: </label>
+                @{Model.NCliente = new Cliente(); }
+                <select asp-for="NCliente.Id">
+                    @foreach (var Cliente in Model.LClientesVM)
+                    {
+                        <option value="@Cliente.IdCliente" >@Cliente.Nombre</option>
+                    }
+                </select>
+            </div>
+            <div class="card-body px-lg-5 pt-0">
+                <div class="md-form">
+                    <textarea asp-for="Observacion" class="form-control z-depth-1" id="Textarea6" rows="3" placeholder="Ingrese su observacion..."></textarea>
+                </div>
+                <div class="md-form">
+                    <select asp-for="TPedido">
+                        <option value="0">Delicado</option>
+                        <option value="1">Express</option>
+                        <option value="2">Ecologico</option>>
+                    </select>
+                </div>
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

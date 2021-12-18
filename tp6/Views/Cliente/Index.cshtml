@@ -1,0 +1,50 @@
+﻿@model List<tp6.ViewModel.ClienteViewModel>
+    <br />
+    <div class="card">
+        <div class="header pt-3 aqua-gradient">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-3 pt-3 font-weight-bold">Lista de Clientes</h3>
+            </div>
+        </div>
+        <div class="card-body mx-4 mt-4">
+
+            <table id="tablita" class="table" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">ID</th>
+                        <th class="th-sm">Nombre</th>
+                        <th class="th-sm">Direccion</th>
+                        <th class="th-sm">Telefono</th>
+                        <th class="th-sm">Cupon</th>
+                        <th class="th-sm">Modificar</th>
+                        <th class="th-sm">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var Cliente in Model)
+                        {
+                            <tr>
+                                <td class="align-middle">@Cliente.IdCliente</td>
+                                <td class="align-middle">@Cliente.Nombre</td>
+                                <td class="align-middle">@Cliente.Direccion</td>
+                                <td class="align-middle">@Cliente.Telefono</td>
+                                <td class="align-middle">@Cliente.Cupon</td>
+                                <td class="align-middle">
+                                    <form asp-action="ModificarCliente" method="post" class="form-group">
+                                        <input type="hidden" name="_id" value="@Cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-outline-info waves-effect">✏️</button>
+                                    </form>
+                                </td>
+                                <td class="align-middle">
+                                    <form asp-action="BajaCliente" aps-method="post" class="form-group">
+                                        <input type="hidden" name="_id" value="@Cliente.IdCliente" />
+                                        <button type="submit" class="btn btn-outline-danger waves-effect">🗑️</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

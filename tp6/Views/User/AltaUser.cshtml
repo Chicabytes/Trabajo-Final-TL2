@@ -1,0 +1,33 @@
+﻿@model tp6.ViewModel.UserViewModel
+<div class="card">
+    <div class="header pt-3 purple-gradient-rgba">
+
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Registrarse</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+        <form asp-action="CrearUsuario" method="post">
+            <div class="form-group">
+                <label asp-for="Usuario">Nombre de usuario: </label>
+                <input class="form-control" type="text" asp-for="Usuario" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Contrasena">Contraseña: </label>
+                <input class="form-control" type="password" asp-for="Contrasena" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Rol">Rol: </label>
+                <select asp-for="Rol">
+                    <option value="0">Admin</option>
+                    <option value="1">Cadete</option>
+                    <option value="2">Cliente</option>
+                </select>
+            </div>
+
+            <input type="submit" name="Enviar" value="Enviar" class="btn btn-primary" />
+        </form>
+    </div>
+</div>

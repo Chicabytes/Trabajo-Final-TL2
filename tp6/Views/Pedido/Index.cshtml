@@ -1,0 +1,55 @@
+﻿@model tp6.ViewModel.PedidoViewModel
+<br />
+<div class="card">
+    <div class="header pt-3 peach-gradient">
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Lista de Pedidos</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+        <table class="table" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">ID</th>
+                    <th class="th-sm">Cliente</th>
+                    <th class="th-sm">Detalle</th>
+                    <th class="th-sm">Cadete</th>
+                    <th class="th-sm">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Pedido in Model.ListadoDePedidos)
+                {
+                    <tr>
+                        <td class="align-middle">@Pedido.Numpedido</td>
+                        <td class="align-middle">@Pedido.NCliente.Nombre</td>
+                        <td class="align-middle">@Pedido.Obs</td>
+                        <td class="align-middle">@Pedido.Cadete.Nombre</td>
+                        <td class="align-middle">@Pedido.Estado_actual</td>
+                        <td class="align-middle">
+                            <form asp-action="ModificarPedido" method="post" class="form-group">
+                                <input type="hidden" name="_idPedido" value="@Pedido.Numpedido" />
+                                <button type="submit" class="btn btn-outline-info waves-effect">✏️</button>
+                            </form>
+                        </td>
+                        <td class="align-middle">
+                            <form asp-action="BajaPedido" aps-method="post" class="form-group">
+                                <input type="hidden" name="idPed" value="@Pedido.Numpedido" />
+                                <input type="hidden" name="idCli" value="@Pedido.NCliente.Id" />
+                                <button type="submit" class="btn btn-outline-danger waves-effect">🗑️</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @{ if (ViewBag.UserLogueado == 2 || ViewBag.UserLogueado == 0)
+            {
+                <form asp-action="AltaPedido" class="form-group">
+                    <button type="submit" class="btn btn-outline-warning waves-effect">Nuevo Pedido</button>
+                </form>
+            }
+        }
+    </div>
+</div>
+<br />

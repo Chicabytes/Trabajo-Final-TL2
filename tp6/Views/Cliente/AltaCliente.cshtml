@@ -1,0 +1,39 @@
+﻿@model tp6.ViewModel.ClienteViewModel
+<div class="card">
+    <br />
+    <div class="card">
+        <div class="header pt-3 aqua-gradient">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-3 pt-3 font-weight-bold">Alta Cliente</h3>
+            </div>
+        </div>
+        <div class="card-body mx-4 mt-4">
+
+            <div class="card-body px-lg-5 pt-0">
+                <form class="text-center" style="color: #757575;" asp-action="CargaCliente" method="post">
+                    <input type="hidden" asp-for="IdCliente" value="@Model.IdCliente" />
+                    <div class="md-form">
+                        <input class="form-control" type="text" asp-for="Nombre">
+                        <label asp-for="Nombre">Nombre</label>
+                    </div>
+                    <div class="md-form">
+                        <input class="form-control" type="text" asp-for="Direccion">
+                        <label asp-for="Direccion">Direccion</label>
+                    </div>
+                    <div class="md-form">
+                        <input class="form-control" type="text" asp-for="Telefono">
+                        <label asp-for="Telefono">Telefono</label>
+                    </div>
+                    <div class="md-form">
+                        ¿Posee cupon de descuento?
+                        <label>
+                            <input type="checkbox" asp-for="Cupon" value="true">Si
+                            <input type="checkbox" asp-for="Cupon" value="false">No
+                        </label>
+                    </div>
+                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

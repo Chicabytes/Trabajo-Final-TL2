@@ -1,0 +1,22 @@
+﻿@model tp6.ViewModel.CadetesYPedidosViewModel
+
+<div class="card">
+    <div class="header pt-3 blue-gradient">
+
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Gestion de Pedidos</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+        <form asp-action="MisPedidos" method="post" class="form-group">
+            <input type="hidden" name="idCadete" value="@Model.IdCadete" />
+            <input type="hidden" name="TipoP" value="@Model.TipoPed" />
+            <button type="submit" class="btn btn-outline-warning waves-effect">Mis Pedidos</button>
+        </form>
+        <form asp-action="ListaDePedidos" method="post" class="form-group">
+            <input type="hidden" name="idCadete" value="@Model.IdCadete" />
+            <input type="hidden" name="TipoP" value="@Model.TipoPed" />
+            <button type="submit" class="btn btn-outline-success waves-effect">Agregar Pedidos</button>
+        </form>
+    </div>
+</div>

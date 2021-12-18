@@ -1,0 +1,25 @@
+﻿@model tp6.ViewModel.UserViewModel
+
+<div class="card">
+        <div class="row d-flex justify-content-center">
+            <div class="header pt-3 purple-gradient" style="padding: 3em">
+                <h3 class="white-text mb-3 pt-3 font-weight-bold">Iniciar Sesion</h3>
+            </div>
+            <div class="card-body mx-4 mt-4">
+                <form asp-action="Ingreso" method="post">
+                    <div class="form-group">
+                        <label asp-for="Usuario">Usuario: </label>
+                        <input id="orangeForm-name" class="form-control" type="text" asp-for="Usuario" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Contrasena">Contraseña: </label>
+                        <input class="form-control" type="password" asp-for="Contrasena" id="orangeForm-email" />
+                    </div>
+
+                    <input type="submit" value="Iniciar Sesion" class="btn purple-gradient btn-lg" />
+                    <input type="submit" value="Registrarse" class="btn purple-gradient btn-lg" asp-action="AltaUser" />
+                </form>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@model tp6.ViewModel.CadetesYPedidosViewModel
+
+<br />
+<div class="card">
+    <div class="header pt-3 blue-gradient">
+        <div class="row d-flex justify-content-center">
+            <h3 class="white-text mb-3 pt-3 font-weight-bold">Lista de Pedidos</h3>
+        </div>
+    </div>
+    <div class="card-body mx-4 mt-4">
+        
+            <table class="table" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">ID</th>
+                        <th class="th-sm">Cliente</th>
+                        <th class="th-sm">Direccion</th>
+                        <th class="th-sm">Observacion</th>
+                        <th class="th-sm">Estado</th>
+                        <th class="th-sm"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var Pedido in Model.ListaPedidos)
+                    {
+                        <tr>
+                            <td class="align-middle">@Pedido.Numpedido</td>
+                            <td class="align-middle">@Pedido.NCliente.Nombre</td>
+                            <td class="align-middle">@Pedido.NCliente.Direccion</td>
+                            <td class="align-middle">@Pedido.Obs</td>
+                            <td class="align-middle">@Pedido.Estado_actual</td>
+                            <td class="align-middle">
+                                <form asp-action="AgregarPedido" method="post" class="form-group">
+                                    <input type="hidden" name="idPedido" value="@Pedido.Numpedido" />
+                                    <input type="hidden" name="idCadete" value="@Model.IdCadete" />
+                                    <button type="submit" class="btn btn-outline-info waves-effect">Agregar Pedido</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        
+    </div>
+</div>
